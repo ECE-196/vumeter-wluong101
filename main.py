@@ -1,3 +1,4 @@
+# Write your code here :-)
 import board
 from digitalio import DigitalInOut, Direction
 from analogio import AnalogIn
@@ -13,6 +14,14 @@ led_pins = [
     board.IO21,
     board.IO26, # type: ignore
     board.IO47,
+    board.IO33,
+    board.IO34,
+    board.IO48,
+    board.IO35,
+    board.IO36,
+    board.IO37,
+    board.IO38,
+    board.IO39,
     # do the rest...
 ]
 
@@ -27,10 +36,16 @@ while True:
 
     print(volume)
 
-    leds[0].value = not leds[0].value
-    leds[1].value = not leds[0].value
+    #leds[0].value = not leds[0].value
+    #leds[1].value = not leds[0].value
+    #sleep(1)
 
-    sleep(1)
+    x = 0
+    for x in range(0,11):
+        if volume > 23000 + (x * 2600):
+            leds[x].value = 1
+        else:
+            leds[x].value = 0
 
     # instead of blinking,
     # how can you make the LEDs
